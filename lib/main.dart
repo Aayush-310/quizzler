@@ -31,6 +31,7 @@ class _QuizPageState extends State<QuizPage> {
     'Approximately one quarter of human bones are in the feet.',
     'A slug\'s blood is green.'
   ];
+  List<bool> answer = [false, true, true];
   int questionNumber = 0;
   @override
   Widget build(BuildContext context) {
@@ -70,11 +71,23 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 setState(
                   () {
-                    scoreKeeper.add(const Icon(
-                      Icons.check,
-                      color: Colors.green,
-                    ));
+                    if (answer[questionNumber] == true) {
+                      scoreKeeper.add(
+                        const Icon(
+                          Icons.check,
+                          color: Colors.green,
+                        ),
+                      );
+                    } else {
+                      scoreKeeper.add(
+                        const Icon(
+                          Icons.close,
+                          color: Colors.red,
+                        ),
+                      );
+                    }
                     questionNumber++;
+                    print(questionNumber);
                   },
                 );
 
@@ -97,13 +110,23 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 setState(() {
-                  scoreKeeper.add(
-                    const Icon(
-                      Icons.close,
-                      color: Colors.red,
-                    ),
-                  );
+                  if (answer[questionNumber] == false) {
+                    scoreKeeper.add(
+                      const Icon(
+                        Icons.check,
+                        color: Colors.green,
+                      ),
+                    );
+                  } else {
+                    scoreKeeper.add(
+                      const Icon(
+                        Icons.close,
+                        color: Colors.red,
+                      ),
+                    );
+                  }
                   questionNumber++;
+                  print(questionNumber);
                 });
                 //The user picked false.
               },
