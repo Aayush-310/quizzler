@@ -31,6 +31,7 @@ class _QuizPageState extends State<QuizPage> {
     'Approximately one quarter of human bones are in the feet.',
     'A slug\'s blood is green.'
   ];
+  int questionNumber = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,12 +41,12 @@ class _QuizPageState extends State<QuizPage> {
         Expanded(
           flex: 5,
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                question[0],
+                question[questionNumber],
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 25.0,
                   color: Colors.white,
                 ),
@@ -73,6 +74,7 @@ class _QuizPageState extends State<QuizPage> {
                       Icons.check,
                       color: Colors.green,
                     ));
+                    questionNumber++;
                   },
                 );
 
@@ -101,6 +103,7 @@ class _QuizPageState extends State<QuizPage> {
                       color: Colors.red,
                     ),
                   );
+                  questionNumber++;
                 });
                 //The user picked false.
               },
