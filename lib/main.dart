@@ -141,9 +141,3 @@ class _QuizPageState extends State<QuizPage> {
     );
   }
 }
-
-/*
-question1:  false,
-question2:, true,
-question3: 'A slug\'s blood is green.', true,
-*/
