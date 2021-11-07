@@ -6,3 +6,7 @@ class Question {
     questionAnswer = a;
   }
 }
+//another way of creating a class
+//String questionText;
+//bool questionAnswer;
+//Question(this.questionText, this.questionAnswer);
